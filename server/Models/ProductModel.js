@@ -1,19 +1,21 @@
+// Importar la instancia de la base de datos desde el archivo '../database/database'
 import dataBase from "../database/database";
-import { DataTypes} from 'sequelize';
 
-const Product = dataBase.define('Productos',{
-    nombre: {type: DataTypes.STRING},
-    precio: {type: DataTypes.NUMBER},
-    descripcion: {type: DataTypes.TEXT},
-    image1: {type: DataTypes.TEXT},
-    image2: {type: DataTypes.TEXT},
-    image3: {type: DataTypes.TEXT},
-    maxStock: {type: DataTypes.INTEGER},
-    minStock: {type: DataTypes.INTEGER},
-    stock: {type: DataTypes.INTEGER}
+// Importar la clase DataTypes del módulo 'sequelize'
+import { DataTypes } from 'sequelize';
 
-})
+// Definir el modelo Product utilizando la instancia de la base de datos
+const ProductModel = dataBase.define('Product', {
+  nameProduct: { type: DataTypes.STRING },         // Campo nombre de tipo STRING
+  priceProduct: { type: DataTypes.NUMBER },         // Campo precio de tipo NUMBER
+  descriptionProduct: { type: DataTypes.TEXT },      // Campo descripcion de tipo TEXT
+  img1: { type: DataTypes.TEXT },           // Campo image1 de tipo TEXT
+  img2: { type: DataTypes.TEXT },           // Campo image2 de tipo TEXT
+  img3: { type: DataTypes.TEXT },           // Campo image3 de tipo TEXT
+  stockMax: { type: DataTypes.INTEGER },      // Campo maxStock de tipo INTEGER
+  stockMin: { type: DataTypes.INTEGER },      // Campo minStock de tipo INTEGER
+  Stock: { type: DataTypes.INTEGER }          // Campo stock de tipo INTEGER
+});
 
-export default Product;
-
-
+// Exportar el modelo Product para su uso en otros archivos
+export default ProductModel;
