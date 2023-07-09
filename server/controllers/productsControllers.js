@@ -3,7 +3,7 @@ import ProductModel from "../Models/ProductModel";
 // Importar las variables productsStock y productMinStock desde el archivo '../main.js'
 import { productsStock, productMinStock } from "../main.js";
 // Importar la función sendMail desde el archivo '../mail/mail.js'
-import { sendMail } from "../mail/mail.js";
+import { sendMail } from "../email/mail.js";
 
 // Controlador para obtener todos los productos
 const getAllProducts = async (req, res) => {

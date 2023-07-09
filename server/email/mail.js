@@ -5,16 +5,16 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'tu_correo@gmail.com',   // Dirección de correo electrónico desde la cual se enviará el mensaje
-    pass: 'tu_contraseña'          // Contraseña de la cuenta de correo electrónico
+    user: 'utpitos@gmail.com',   // Dirección de correo electrónico desde la cual se enviará el mensaje
+    pass: 'UTPitos123'          // Contraseña de la cuenta de correo electrónico
   }
 });
 
 // Definir la función sendMail que enviará el correo electrónico
 const sendMail = prod => {
   transporter.sendMail({
-    from: "ecommerce <ecommerce@gmail.com>",  // Dirección de correo electrónico del remitente
-    to: "a.adarve@utp.edu.co",                // Dirección de correo electrónico del destinatario
+    from: "utpitos@gmail.com",  // Dirección de correo electrónico del remitente
+    to: "d.rincon@utp.edu.co",                // Dirección de correo electrónico del destinatario
     subject: "Stock at its minimum",          // Asunto del correo electrónico
     text: `The following product's stock which id is ${prod.id} is almost empty` // Contenido del correo electrónico
   }).then(console.info)   // Mostrar información en la consola si el envío es exitoso
