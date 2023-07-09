@@ -1,6 +1,5 @@
-
 // Importar el módulo Express y la funcionalidad cors
-import { Express } from "express";
+import Express from "express";
 import cors from 'cors';
 // Importar la instancia de la base de datos desde el archivo './database/database'
 import dataBase from "./database/database";
@@ -11,7 +10,7 @@ import userRoutes from './routers/routersUser'
 // Importar el modelo ProductModel desde el archivo './Models/ProductModel'
 import ProductModel from "./Models/ProductModel";
 // Importar la función pay desde el archivo './routers/pay.js'
-import { pay } from './routers/pay.js'
+import pay from './routers/pay.js'
 
 // Crear una instancia de Express
 const app = Express();
@@ -24,6 +23,8 @@ app.use(Express.json());
 app.use('/products', productRoutes);
 // Configurar las rutas de usuarios
 app.use('/users', userRoutes);
+//Se generalizan las rutas de pgaso
+app.use.apply('/payment', pay)
 
 try {
     // Verificar la autenticación de la base de datos
@@ -47,12 +48,15 @@ const products = await ProductModel.findAll({
 let productsStock = {}; // Objeto para guardar el stock de los productos
 let productMinStock = {}; // Objeto para guardar el stock mínimo de los productos
 
+//Cada producto obtenido
 products.forEach(product => {
-    productsStock[product.dataValues.id] = product.dataValues.stock;
+    productsStock[product.dataValues.id] = product.dataValues.stock;//se le asigna el id correspondiente al producto y a su vez el valor del stock en forma de objeto
 });
 
 products.forEach(product => {
-    productMinStock[product.dataValues.id] = { stockMin: product.dataValues.stockMin, nombre: product.dataValues.nombre };
+    productMinStock[product.dataValues.id] = {stockMin: product.dataValues.stockMin, nombre: product.dataValues.nombre};//se le asigna el id correspondiente al producto y a su vez el valor minimo del stock en forma de objeto, junto con el nomrbe
 });
 
 console.log(productMinStock);
+
+export {productsStock, productMinStock};//exportation de los objetos
