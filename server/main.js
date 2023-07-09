@@ -55,3 +55,4 @@ products.forEach(product => {
 });
 
 console.log(productMinStock);
+// holaa
