@@ -2,7 +2,7 @@
 import Stripe from "stripe";
 
 // Crear una instancia de Stripe y proporcionar la clave de API
-const stripe = Stripe('');
+const stripe = Stripe('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');
 
 // Función para realizar el pago
 const pay = async (req, res) => {
