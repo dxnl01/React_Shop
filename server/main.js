@@ -1,3 +1,4 @@
+
 // Importar el módulo Express y la funcionalidad cors
 import { Express } from "express";
 import cors from 'cors';
@@ -55,4 +56,3 @@ products.forEach(product => {
 });
 
 console.log(productMinStock);
-// holaa
