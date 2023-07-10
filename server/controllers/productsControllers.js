@@ -75,7 +75,7 @@ const bookProduct = async (req, res) => {
       return res.json("Unbooked");
     } else if (req.query.f === "book") {
       if (productsStock[req.params.id] == 0)
-        return res.json("Stockout");
+        return res.json("Stockout");////en caso de que el producto sea igual a 0 se notifica que se acabo
       productsStock[req.params.id]--;
       return res.json("Booked");
     }
@@ -93,7 +93,7 @@ const updateContent = async (product, quantity) => {
     where: { id: product },
   });
   console.log(quantity);
-  await ProducModel.update(
+  await ProductModel.update(
     { stock: stock[0].dataValues.stock - quantity[product] },
     {
       where: { id: product },

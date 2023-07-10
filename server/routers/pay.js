@@ -17,6 +17,7 @@ const pay = async (req, res) => {
       confirm: true
     });
 
+    console.log('payment', payment);
     // Enviar la respuesta de éxito
     res.json({
       message: 'Payment successful',
